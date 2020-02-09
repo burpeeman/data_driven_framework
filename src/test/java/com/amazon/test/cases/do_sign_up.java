@@ -35,44 +35,15 @@ public class do_sign_up extends base_class {
 
 	}
 
-	@Test(dataProviderClass=utilities.class,dataProvider="dataprovider")
+	@Test(dataProviderClass = utilities.class, dataProvider = "dataprovider")
 	public void signUp(String name, String email, String password) {
 
-		test = extent.createTest("Sign up test");
-		
 		driver.findElement(By.xpath("//input[@type='text' and @name='name']")).sendKeys(name);
 		driver.findElement(By.xpath("//input[@type='text' and @name='email']")).sendKeys(email);
 		driver.findElement(By.xpath("//input[@type='password' and @name='password']")).sendKeys(password);
-		driver.findElement(By.xpath("//span[contains(text(),'Create An Account')]//parent::div//parent::button")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Create An Account')]//parent::div//parent::button"))
+				.click();
 
 	}
-	
-	@AfterMethod
-	public void tearDown(ITestResult result) throws IOException {
-		
-		if(result.getStatus()==ITestResult.SUCCESS) {
 
-	String method = result.getMethod().getMethodName();
-	
-	Markup m = MarkupHelper.createLabel(method, ExtentColor.GREEN);
-	test.pass(m);
-	
-	utilities.screenshot(result.getMethod().getMethodName());
-	test.addScreenCaptureFromPath(utilities.screenshot(result.getMethod().getMethodName()), "Error screenshot");
-			
-	}
-
-	else if(result.getStatus()==ITestResult.FAILURE) {
-		
-	String method = result.getMethod().getMethodName();
-	
-	Markup m = MarkupHelper.createLabel(method, ExtentColor.RED);
-	test.fail(m);
-	utilities.screenshot(result.getMethod().getMethodName());
-	test.addScreenCaptureFromPath(utilities.screenshot(result.getMethod().getMethodName()), "Error screenshot");
-		
-	}
-	
-	}
-	
 }

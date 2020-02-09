@@ -19,14 +19,11 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class base_class {
-	public static WebDriver driver=null;
+	public static WebDriver driver = null;
 	public static Properties object = new Properties();
 	public static Properties config = new Properties();
 	public FileInputStream fis;
 	public static ExcelReader excel;
-	public ExtentHtmlReporter HtmlReporter;
-	public static ExtentReports extent;
-	public static ExtentTest test;
 
 	@BeforeSuite
 	public void setup() {
@@ -74,30 +71,6 @@ public class base_class {
 
 		}
 
-	}
-	
-	@BeforeTest
-	public void ExtentSetup() {
-	
-		HtmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"//target//extent.html");
-		
-	HtmlReporter.config().setEncoding("utf-8");
-	HtmlReporter.config().setDocumentTitle("data diven project");
-	HtmlReporter.config().setReportName("test summary");
-	HtmlReporter.config().setTheme(Theme.STANDARD);
-	
-	extent = new ExtentReports();
-	extent.attachReporter(HtmlReporter);
-	
-	extent.setSystemInfo("automation engg", "Rishabh");
-		
-	}
-	
-	@AfterTest
-	public void ExtentTeardown() {
-		
-	extent.flush();	
-		
 	}
 
 }
