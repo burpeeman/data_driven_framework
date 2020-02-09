@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="10636" started-at="2020-02-09T03:45:53 IST" finished-at="2020-02-09T03:46:04 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="10636" started-at="2020-02-09T03:45:53 IST" finished-at="2020-02-09T03:46:04 IST">
+      <class name="com.amazon.test.cases.do_sign_up">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="setup" is-config="true" duration-ms="9634" started-at="2020-02-09T03:45:44 IST" finished-at="2020-02-09T03:45:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="ExtentSetup()[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="ExtentSetup" is-config="true" duration-ms="246" started-at="2020-02-09T03:45:53 IST" finished-at="2020-02-09T03:45:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExtentSetup -->
+        <test-method status="PASS" signature="intialize()[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="intialize" is-config="true" duration-ms="6619" started-at="2020-02-09T03:45:53 IST" finished-at="2020-02-09T03:46:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- intialize -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="cleanup" is-config="true" duration-ms="185" started-at="2020-02-09T03:46:01 IST" finished-at="2020-02-09T03:46:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+        <test-method status="PASS" signature="signUp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="signUp" duration-ms="831" started-at="2020-02-09T03:46:01 IST" data-provider="dataprovider" finished-at="2020-02-09T03:46:02 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[casper whiskey112]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[casperwhiskey112@gmail.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[casperwhiskey]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signUp -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="tearDown" is-config="true" duration-ms="1066" started-at="2020-02-09T03:46:02 IST" finished-at="2020-02-09T03:46:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=signUp status=SUCCESS method=do_sign_up.signUp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ExtentTeardown()[pri:0, instance:com.amazon.test.cases.do_sign_up@51cdd8a]" name="ExtentTeardown" is-config="true" duration-ms="484" started-at="2020-02-09T03:46:03 IST" finished-at="2020-02-09T03:46:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExtentTeardown -->
+      </class> <!-- com.amazon.test.cases.do_sign_up -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
