@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -57,12 +58,19 @@ public class base_class {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			
+			config.setProperty("browser", System.getenv("browser"));
+			
+			
 			if (config.getProperty("browser").equals("chrome")) {
 
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir") + "//src//test//resources//excutiables//chromedriver.exe");
 				driver = new ChromeDriver();
+			}else if(config.getProperty("browser").equals("firefox")){
+				
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "//src//test//resources//excutiables//geckodriver.exe");
+				driver = new FirefoxDriver();
 			}
 
 			driver.get(config.getProperty("website"));

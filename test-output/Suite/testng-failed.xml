@@ -4,18 +4,27 @@
   <listeners>
     <listener class-name="com.amazon.listeners.customListeners"/>
   </listeners>
-  <test thread-count="5" name="Test3(failed)">
-    <parameter name="password" value="casperwhiskey"/>
-    <parameter name="name" value="casper whiskey112"/>
+  <test thread-count="5" name="Test1(failed)">
     <classes>
-      <class name="com.amazon.test.cases.do_login">
+      <class name="com.amazon.test.cases.elements_present">
         <methods>
-          <include name="login" invocation-numbers="0"/>
+          <include name="detect_element_presence"/>
+          <include name="intial"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.amazon.test.cases.elements_present -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+  <test thread-count="5" name="Test2(failed)">
+    <classes>
+      <class name="com.amazon.test.cases.do_sign_up">
+        <methods>
+          <include name="signUp" invocation-numbers="0"/>
           <include name="cleanup"/>
           <include name="intialize"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.amazon.test.cases.do_login -->
+      </class> <!-- com.amazon.test.cases.do_sign_up -->
     </classes>
-  </test> <!-- Test3(failed) -->
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

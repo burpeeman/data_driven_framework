@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.testng.ITestResult;
+import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -20,9 +21,8 @@ public class do_sign_up extends base_class {
 	@BeforeClass
 	public void intialize() {
 
-		driver.findElement(
-				By.xpath("//a[@href='https://www.hackerrank.com/signup/?h_r=home&h_l=body_top_center_button']"))
-				.click();
+		driver.get("https://www.hackerrank.com/signup/?h_r=home&h_l=body_top_center_button']");
+
 		driver.findElement(By.xpath("//li[@id='Sign up']")).click();
 	}
 
@@ -37,6 +37,11 @@ public class do_sign_up extends base_class {
 
 	@Test(dataProviderClass = utilities.class, dataProvider = "dataprovider")
 	public void signUp(String name, String email, String password) {
+		
+if(utilities.runmode("do_sign_up")==false) {
+			
+			throw new SkipException("The runmode is no");
+		}
 
 		driver.findElement(By.xpath("//input[@type='text' and @name='name']")).sendKeys(name);
 		driver.findElement(By.xpath("//input[@type='text' and @name='email']")).sendKeys(email);

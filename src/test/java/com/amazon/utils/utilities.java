@@ -66,7 +66,7 @@ public class utilities extends base_class {
 		extent.attachReporter(HtmlReporter);
 
 		extent.setSystemInfo("automation engg", "Rishabh");
-		
+
 		return extent;
 
 	}
@@ -109,6 +109,44 @@ public class utilities extends base_class {
 		}
 
 		return getdata;
+	}
+
+	public static boolean runmode(String testName) {
+
+		excel = new ExcelReader(
+				System.getProperty("user.dir") + "//src//test//resources//ExcelFiles//data_providers.xlsx");
+
+		String sheet = "Sheet3";
+
+		int row = excel.getRowCount(sheet);
+		int cols = excel.getColumnCount(sheet);
+
+		String[][] getdata = new String[row - 1][cols];
+
+		for (int i = 2; i <= row; i++) {
+
+			String testcase = excel.getCellData(sheet, 0, i);
+			System.out.println(testcase);
+			if (testcase.equalsIgnoreCase(testName)) {
+
+				String runmode = excel.getCellData(sheet, 1, i);
+				System.out.println(runmode);
+
+				if (runmode.equalsIgnoreCase("y")) {
+
+					return true;
+
+				} else {
+					return false;
+				}
+			} else {
+
+				return false;
+			}
+
+		}
+		return false;
+
 	}
 
 }

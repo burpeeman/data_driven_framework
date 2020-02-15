@@ -1,5 +1,6 @@
 package com.amazon.test.cases;
 
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -22,6 +23,11 @@ public class elements_present extends base_class {
 	
 	@Test
 	public void detect_element_presence() {
+		
+if(utilities.runmode("elements_present")==false) {
+			
+			throw new SkipException("The runmode is no");
+		}
 		//footer[@id='colophon' and @class='hr__site-footer']
 		SoftAssert softassert = new SoftAssert();
 

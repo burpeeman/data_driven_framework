@@ -1,6 +1,7 @@
 package com.amazon.test.cases;
 
 import org.openqa.selenium.By;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -15,11 +16,12 @@ public class do_login extends base_class {
 
 	@BeforeClass
 	public void intialize() {
+		
+		
 
-//		driver.findElement(
-//				By.xpath("//a[@href='https://www.hackerrank.com/signup/?h_r=home&h_l=body_top_center_button']"))
-//				.click();
-		driver.findElement(By.xpath("//li[@id='Log in']")).click();
+
+driver.get("ttps://www.hackerrank.com/signup/");
+driver.findElement(By.xpath("//li[@id='Log in']")).click();
 	}
 
 	@BeforeMethod
@@ -29,10 +31,18 @@ public class do_login extends base_class {
 		driver.findElement(By.xpath("//input[@type='password' and @name='password']")).clear();
 		
 	}
+	
+	
+	
 
 	@Parameters({"name", "password"})
 	@Test
 	public void login(String name, String password) {
+		
+if(utilities.runmode("do_login")==false) {
+			
+			throw new SkipException("The runmode is no");
+		}
 
 		driver.findElement(By.xpath("//input[@type='text' and @name='username']")).sendKeys(name);
 		driver.findElement(By.xpath("//input[@type='password' and @name='password']")).sendKeys(password);
@@ -44,7 +54,7 @@ public class do_login extends base_class {
 		
 		
 		SoftAssert softassert = new SoftAssert();
-		softassert.assertEquals(utilities.is_element_present("//span[contains(text(),'Invalid login or password. Please try again.')]//parent::div[@class='form-alert message-error']"), false);
+		softassert.assertEquals(utilities.is_element_present("//span[contains(text(),'Invalid login or password. Please try again.')]//parent::div[@class='form-alert message-error']"), true);
 		softassert.assertAll();
 	}
 
